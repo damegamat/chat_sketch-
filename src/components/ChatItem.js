@@ -1,8 +1,9 @@
 import { Avatar, Grid, css } from '@mui/material'
 import styled from '@emotion/styled/macro'
 
-import { Text } from 'components/Text'
+import Text from 'components/Text'
 import { colors } from 'utils'
+import { useNavigateTo } from 'hooks/useNavigateTo'
 
 const AvatarWrapper = styled(Grid)`
   height: 44px;
@@ -17,7 +18,7 @@ const AvatarWrapper = styled(Grid)`
       min-width: 54px;
       > div {
         position: absolute;
-        :first-child {
+        :first-of-type {
           top: 0;
           left: 0;
           background-color: ${colors.darkGray};
@@ -38,13 +39,15 @@ const ChatItem = ({
   date,
   sizes,
   group,
+  id,
   className,
 }) => {
+  const { navigateTo } = useNavigateTo({ path: '/chat' })
   const avatarSize = sizes ?? group ? '34px' : '44px'
   const sx = { width: avatarSize, height: avatarSize }
 
   return (
-    <Grid className={className} container>
+    <Grid className={className} container onClick={() => navigateTo(id)}>
       <AvatarWrapper
         container
         alignItems='center'
@@ -78,5 +81,6 @@ const ChatItem = ({
 const Styled = styled(ChatItem)`
   flex-wrap: nowrap;
   flex-grow: 1;
+  cursor: pointer;
 `
 export default Styled

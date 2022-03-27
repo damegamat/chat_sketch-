@@ -1,9 +1,10 @@
 import styled from '@emotion/styled/macro'
 import { Grid } from '@mui/material'
+import { v4 as uuidv4 } from 'uuid'
 
 import Avatar from 'components/Avatar'
 import Search from 'components/Search'
-import { Slider } from 'components/Slider'
+import Slider from 'components/Slider'
 import ChatList from 'components/ChatList'
 
 import person1 from 'imgs/person1.jpeg'
@@ -19,21 +20,21 @@ const MOCK_CHAT_LIST = [
     date: 'Sun',
   },
   {
-    avatar: [],
+    avatar: null,
     group: null,
     name: 'Odeusz Piotrowski',
     latest_msg: 'Will do, super, thank you',
     date: 'Tue',
   },
   {
-    avatar: [],
+    avatar: null,
     group: 3,
     name: 'Krysia Eurydyka',
     latest_msg: 'How is koronavirus?',
     date: 'Mon',
   },
   {
-    avatar: [],
+    avatar: null,
     group: 22,
     name: 'jarosław kowalski',
     latest_msg: 'jarek.kowal@emaile.com',
@@ -47,15 +48,16 @@ const MOCK_CHAT_LIST = [
     date: '18 Mar',
   },
   {
-    avatar: [],
+    avatar: null,
     group: null,
     name: 'jarosław kowalski',
     latest_msg: 'no pracujemy z domu przez 5 ...',
     date: '01 Feb',
   },
-]
+].map((obj) => ({ ...obj, id: uuidv4() }))
 
 const Main = ({ className }) => {
+  console.log('ok')
   return (
     <Grid className={className} container flexDirection='column'>
       <Avatar name='Martyna Wolna' sizes='45px' img={person1} />

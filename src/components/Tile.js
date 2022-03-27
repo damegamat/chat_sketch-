@@ -2,7 +2,7 @@ import { Grid, css } from '@mui/material'
 import styled from '@emotion/styled/macro'
 
 import { HeartIcon } from 'components/Icons'
-import { Text } from 'components/Text'
+import Text from 'components/Text'
 
 const SBox = styled(Grid)`
   ${({ img }) => css`

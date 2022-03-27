@@ -1,12 +1,13 @@
 import styled from '@emotion/styled/macro'
 import { Grid } from '@mui/material'
+
 import ChatItem from 'components/ChatItem'
 
 const ChatList = ({ chatList, className }) => {
   return (
     <Grid container flexDirection='column' className={className}>
-      {chatList.map((props, i) => (
-        <ChatItem {...props} key={i} />
+      {chatList.map((props) => (
+        <ChatItem {...props} key={props.id} />
       ))}
     </Grid>
   )

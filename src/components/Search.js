@@ -2,13 +2,13 @@ import { Grid, Input } from '@mui/material'
 import styled from '@emotion/styled/macro'
 
 import { IconWrapper, PlusIcon, SearchIcon } from 'components/Icons'
-import { colors } from 'utils'
+import { colors, opacity } from 'utils'
 
 const StyledInput = styled(Input)`
   width: auto;
   flex-grow: 1;
-  color: ${colors.opacity1};
-  background-color: ${colors.opacity};
+  color: ${opacity[1]};
+  background-color: ${opacity[0]};
   border-radius: 10px;
   padding-left: 15px;
   max-width: 600px;
