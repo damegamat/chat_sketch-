@@ -1,88 +1,20 @@
 import styled from '@emotion/styled/macro'
 import { Grid } from '@mui/material'
-import { v4 as uuidv4 } from 'uuid'
 
 import Avatar from 'components/Avatar'
 import Search from 'components/Search'
 import Slider from 'components/Slider'
 import ChatList from 'components/ChatList'
+import { FAVOURITES_LIST, CHAT_LIST, USER_DATA } from 'MOCKS'
 
-import person1 from 'imgs/person1.jpeg'
-import person2 from 'imgs/person2.jpeg'
-import person3 from 'imgs/person3.jpeg'
-
-const MOCK_CHAT_LIST = [
-  {
-    avatar: person2,
-    group: 5,
-    name: 'Bożenka Malina',
-    latest_msg: 'Uploaded file.',
-    date: 'Sun',
-  },
-  {
-    avatar: null,
-    group: null,
-    name: 'Odeusz Piotrowski',
-    latest_msg: 'Will do, super, thank you',
-    date: 'Tue',
-  },
-  {
-    avatar: null,
-    group: 3,
-    name: 'Krysia Eurydyka',
-    latest_msg: 'How is koronavirus?',
-    date: 'Mon',
-  },
-  {
-    avatar: null,
-    group: 22,
-    name: 'jarosław kowalski',
-    latest_msg: 'jarek.kowal@emaile.com',
-    date: '01 Feb',
-  },
-  {
-    avatar: person3,
-    group: null,
-    name: 'Krysia Eurydyka',
-    latest_msg: 'Uploaded file.',
-    date: '18 Mar',
-  },
-  {
-    avatar: null,
-    group: null,
-    name: 'jarosław kowalski',
-    latest_msg: 'no pracujemy z domu przez 5 ...',
-    date: '01 Feb',
-  },
-].map((obj) => ({ ...obj, id: uuidv4() }))
-
-const Main = ({ className }) => {
-  console.log('ok')
-  return (
-    <Grid className={className} container flexDirection='column'>
-      <Avatar name='Martyna Wolna' sizes='45px' img={person1} />
-      <Search />
-      <Slider
-        name='Favourites'
-        items={[
-          { name: 'Bożenka Malina', img: person1 },
-          { name: 'Anastazja Ziemkowska', img: person2 },
-          { name: 'Magdalena Pomorska', img: person3 },
-          { name: 'Natalia Nowak', img: null },
-          { name: 'Natalia Natalia', img: null },
-          { name: 'Natalia Magdalena', img: null },
-          { name: 'Anastazja Pomorska', img: null },
-          { name: 'Michal Wisniewski', img: null },
-          { name: 'Jarek Silny', img: null },
-          { name: 'Daniel Slaby', img: null },
-          { name: 'Mateusz Stary', img: null },
-          { name: 'Kamil Kos', img: null },
-        ]}
-      />
-      <ChatList chatList={MOCK_CHAT_LIST} />
-    </Grid>
-  )
-}
+const Main = ({ className }) => (
+  <Grid className={className} container flexDirection='column'>
+    <Avatar name={USER_DATA.name} sizes='45px' img={USER_DATA.avatar} />
+    <Search />
+    <Slider name='Favourites' items={FAVOURITES_LIST} />
+    <ChatList chatList={CHAT_LIST} />
+  </Grid>
+)
 
 const Styled = styled(Main)`
   ${Avatar} {
