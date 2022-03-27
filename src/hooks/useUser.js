@@ -1,6 +1,3 @@
-const USER_DATA = {
-  name: 'Martyna Wolna',
-  id: USER_DATA.id,
-}
+import { USER_DATA } from 'MOCKS'
 
 export const useUser = () => ({ ...USER_DATA })

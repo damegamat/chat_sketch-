@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes as Router, Route } from 'react-router-dom'
-import { CircularProgress } from '@mui/material'
+import { LinearProgress } from '@mui/material'
 
 import { MainLayout } from 'layouts'
 
@@ -9,7 +9,7 @@ const Chat = lazy(() => import('./pages/Chat'))
 
 export const Routes = () => (
   <BrowserRouter>
-    <Suspense fallback={<CircularProgress />}>
+    <Suspense fallback={<LinearProgress />}>
       <MainLayout>
         <Router>
           <Route path='/' element={<Main />} />
