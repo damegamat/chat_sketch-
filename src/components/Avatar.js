@@ -1,7 +1,7 @@
 import styled from '@emotion/styled/macro'
 import { Avatar as MAvatar, Grid } from '@mui/material'
 
-import { Text } from 'components/Text'
+import Text from 'components/Text'
 
 const Avatar = ({ img, name, sizes, className }) => {
   return (
